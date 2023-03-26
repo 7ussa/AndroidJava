@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical" >
+
+
+    <!-- erste Zeile: Temperatur eingeben -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/temperatur"
+            android:background="#FFEB3B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/temperatur"
+            android:textSize="10pt"
+            android:gravity="center" />
+
+        <EditText
+            android:id="@+id/tempEingabe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="10pt"
+            android:layout_weight="1"
+            android:inputType="numberSigned"
+            />
+        <!-- Initialisierung mit 0 Grad, willkuerlich gewählt, koennte man auch weglassen -->
+
+    </LinearLayout>
+
+    <!-- Zweite Zeile: Regen und Wind -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/regenCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:text="@string/regenCheckbox" />
+
+        <CheckBox
+            android:id="@+id/windCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:text="@string/windCheckbox" />
+
+    </LinearLayout>
+
+    <!-- dritte Zeile: uebernehmen -->
+    <Button
+        android:id="@+id/uebernehmenButton"
+        android:text="@string/uebernehmenButton"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:onClick="clickReaktion"/>
+
+    <!-- Vierte Zeile: ausgeben des aktuellen Wetters -->
+    <TextView
+        android:id ="@+id/wetterText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/wetter"
+        android:gravity="center"
+        android:textSize="10pt" />
+
+    <!-- Fünfte und sechste Zeile:
+        Anzeigen für die Anzahl der Eingaben und die Durchschnittstemperatur
+        Auf Wunsch mit Beschriftung - Das war aber in der Aufgabe nicht erwähnt
+        Und Anzeigen für die Regen- bzw Windhaeufigkeit -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="4">
+
+        <TextView
+            android:id="@+id/anzahlEingaben"
+            android:background="#FFEB3B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/anzahlEingaben"
+            android:textSize="6pt"
+            android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/anzahl"
+            android:background="#00FFFFFF"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textSize="6pt"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/durchschnittTemperatur"
+            android:background="#FFEB3B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/durchschnittTemperatur"
+            android:textSize="6pt"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/dTemp"
+            android:background="#00FF05FF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_row="0"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textSize="6pt"
+            android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/anzahlRegen"
+            android:background="#3BFFE2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/anzahlRegen"
+            android:textSize="10pt"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/anzRegen"
+            android:background="#00FF05FF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textSize="6pt"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/anzahlWind"
+            android:background="#3BFFE2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/anzahlWind"
+            android:textSize="10pt"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/anzWind"
+            android:background="#00FF05FF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:textSize="6pt"
+            android:gravity="center" />
+    </GridLayout>
+
+    <!-- Siebte Zeile: Der Reset Button -->
+    <Button
+        android:id="@+id/resetButton"
+        android:text="@string/resetButton"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:onClick="clickReaktion"/>
+
+    <TextView
+        android:id="@+id/location"
+        android:background="#3BFFE2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/location"
+        android:textSize="10pt"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/standort"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="aktuelle Standort"
+        android:textSize="6pt"
+        android:gravity="center" />
+
+</LinearLayout>

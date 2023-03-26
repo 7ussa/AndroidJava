@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">WetterAPP</string>
+
+    <string name="temperatur">Temperatur eingeben</string>
+    <string name="regenCheckbox">Regen</string>
+    <string name="windCheckbox">Wind</string>
+    <string name="uebernehmenButton">Eingabe übernehmen</string>
+    <string name="wetter">aktuelles Wetter</string>
+    <string name="anzahlEingaben">Anzahl der Eingaben:</string>
+    <string name="durchschnittTemperatur">Durchschnittstemperatur:</string>
+    <string name="anzahlRegen">Regen:</string>
+    <string name="anzahlWind">Wind:</string>
+    <string name="resetButton">Reset</string>
+
+    <string name="location">Standort:</string>
+</resources>
